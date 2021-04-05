@@ -44,7 +44,6 @@ Item.create!(
   description: "Logitech C920s Webcam, Black",
   price: 84.99,
   link: "www.johnlewis.com",
-  buyer: jeremaia.id,
   list_id: list.id,
   user_id: tania.id
 )
