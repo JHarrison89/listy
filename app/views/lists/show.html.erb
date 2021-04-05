@@ -1,2 +1,47 @@
-<h1>Lists#show</h1>
-<p>Find me in app/views/lists/show.html.erb</p>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 mt-3">
+      <h1>Lists#show</h1>
+      <p>Find me in app/views/lists/show.html.erb</p>
+
+
+        <div class="card p-3 mb-3">
+          <table>
+            <h2><%= @list.title %> ID: <%= @list.id  %> </h2>
+              <tr class="row-border">
+                <th>#:</th>
+                <th>Item:</th>
+                <th>Description:</th>
+                <th>Price:</th>
+                <th>Link:</th>
+                <th>Buyer:</th>
+              </tr>
+
+          <% @list.items.each do |item| %>
+
+              <tr class="row-border">
+                <td><%= item.id %></td>
+                <td><%= item.item_name %></td>
+                <td><%= item.description %></td>
+                <td>£<%= item.price %></td>
+                <td><%= item.link %></td>
+
+                <% if item.buyer.nil? || item.buyer == current_user.id %>
+                  <% if item.buyer.nil? %>
+                    <td><%= link_to "Pick", pick_path(item), class: 'btn btn-outline-success', method: :patch %></td>
+                  <% else %>
+                    <td><%= link_to "Unpick", pick_path(item), class: 'btn btn-outline-danger', method: :patch %></td>
+                  <% end %>
+                <% else %>
+                  <td><%= item.buyer %></td>
+                <% end %>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+
+    </div>
+  </div>
+</div>

@@ -6,6 +6,8 @@
       <h1>Lists#index</h1>
       <p>Find me in app/views/lists/index.html.erb</p>
 
+      <h2>hello <%= current_user.first_name %></h2>
+      <%= link_to "Show page", list_path(current_user.lists.ids), class: 'btn btn-outline-success', method: :patch %>
       <% @lists.each do |list| %>
       <% @list = list%>
         <div class="card p-3 mb-3">
