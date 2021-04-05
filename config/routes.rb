@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
-  get 'lists/index'
-  get 'lists/show'
-  get 'lists/new'
-  get 'lists/create'
-  get 'lists/edit'
-  get 'lists/update'
-  get 'lists/destroy'
+  # get 'items/new'
+  # get 'items/create'
+  # get 'items/edit'
+  # get 'items/update'
+  # get 'items/destroy'
+  # get 'items/pick'
+  patch 'items/pick/:id', to: "items#pick", as: :pick
+
   devise_for :users
   root to: 'lists#index'
   resources :lists
