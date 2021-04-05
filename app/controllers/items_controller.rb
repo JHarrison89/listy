@@ -16,7 +16,12 @@ class ItemsController < ApplicationController
 
   def pick
     item = Item.find(params[:id])
-    item.buyer = current_user.id
+    if item.buyer.nil?
+      item.buyer = current_user.id
+    else
+      item.buyer = nil
+    end
     item.save!
+    redirect_to lists_path
   end
 end
