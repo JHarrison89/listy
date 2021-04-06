@@ -3,39 +3,29 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12 mt-3">
-      <h1>Lists#index</h1>
-      <p>Find me in app/views/lists/index.html.erb</p>
 
-      <h2>hello <%= current_user.first_name %></h2>
-      <%= link_to "Show page", list_path(current_user.lists.ids), class: 'btn btn-outline-success' %>
+      <h2>Hello <%= current_user.first_name %></h2>
+      <p>Welcome to Listy, the new home of your gift lists</p>
+      <h4 class="mb-3">Manage: <%= link_to "Your list", list_path(current_user.lists.ids) %></h4>
       <% @lists.each do |list| %>
       <% @list = list%>
         <div class="card p-3 mb-3">
           <table>
-            <h2><%= list.title %> ID: <%= list.id  %> </h2>
-              <tr class="row-border">
-                <th>#:</th>
-                <th>Item:</th>
-                <th>Description:</th>
-                <th>Price:</th>
-                <th>Link:</th>
-                <th>Buyer:</th>
-              </tr>
+            <p><%= list.title %> ID: <%= list.id  %> </p>
 
           <% list.items.each do |item| %>
 
               <tr class="row-border">
-                <td><%= item.id %></td>
                 <td><%= item.item_name %></td>
                 <td><%= item.description %></td>
                 <td>£<%= item.price %></td>
-                <td><%= item.link %></td>
+                <td><a href="<%= item.link %>">Link</a></td>
 
                 <% if item.buyer.nil? || item.buyer == current_user.id %>
                   <% if item.buyer.nil? %>
-                    <td><%= link_to "Pick", pick_path(item), class: 'btn btn-outline-success', method: :patch, remote: true  %></td>
+                    <td><%= link_to pick_path(item), class: 'btn btn-outline-success', method: :patch, remote: true do %> <i class="far fa-circle"></i><% end %></td>
                   <% else %>
-                    <td><%= link_to "Unpick", pick_path(item), class: 'btn btn-outline-danger', method: :patch, remote: true %></td>
+                    <td><%= link_to pick_path(item), class: 'btn btn-outline-danger', method: :patch, remote: true do %> <i class="fas fa-check-circle"></i><% end %></td>
                   <% end %>
                 <% else %>
                   <td><%= item.buyer %></td>
