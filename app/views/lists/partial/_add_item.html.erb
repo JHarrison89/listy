@@ -14,7 +14,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for [@list, Item.new] do |f| %>
+        <%= simple_form_for [@list, Item.new], remote: true do |f| %>
 
             <h2> <%= @list.id %></h2>
             <%= hidden_field_tag 'list', @list.id %>

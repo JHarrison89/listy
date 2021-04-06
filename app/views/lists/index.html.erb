@@ -33,9 +33,9 @@
 
                 <% if item.buyer.nil? || item.buyer == current_user.id %>
                   <% if item.buyer.nil? %>
-                    <td><%= link_to "Pick", pick_path(item), class: 'btn btn-outline-success', method: :patch %></td>
+                    <td><%= link_to "Pick", pick_path(item), class: 'btn btn-outline-success', method: :patch, remote: true  %></td>
                   <% else %>
-                    <td><%= link_to "Unpick", pick_path(item), class: 'btn btn-outline-danger', method: :patch %></td>
+                    <td><%= link_to "Unpick", pick_path(item), class: 'btn btn-outline-danger', method: :patch, remote: true %></td>
                   <% end %>
                 <% else %>
                   <td><%= item.buyer %></td>
