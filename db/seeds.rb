@@ -1,13 +1,13 @@
 puts "Running seed..."
 
 puts "Destroying Items table..."
-Item.destroy_all
+Item.delete_all
 
 puts "Destroying Lists table..."
-List.destroy_all
+List.delete_all
 
 puts "Destroying User table..."
-User.destroy_all
+User.delete_all
 
 puts "Creating users..."
 jeremaia = User.create!(first_name: 'Jeremaia', last_name: 'Harrison', email: 'jeremaia@example.com', password: '123456')
@@ -111,6 +111,11 @@ Item.create!(
   list_id: list.id,
   user_id: lee.id
 )
+
+puts "deleting list created after successful registraion"
+# Change seed so items are added to the auto generated lists"
+arr = List.first(3)
+List.delete(arr)
 
 puts "Seed complete 🌱"
 
