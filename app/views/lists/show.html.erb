@@ -16,7 +16,7 @@
                 <th>Description:</th>
                 <th>Price:</th>
                 <th>Link:</th>
-                <th>Buyer:</th>
+                <th>Update:</th>
                 <th>Delete:</th>
               </tr>
 
@@ -28,20 +28,8 @@
                 <td><%= item.description %></td>
                 <td>£<%= item.price %></td>
                 <td><%= item.link %></td>
-
-                <% if item.buyer.nil? || item.buyer == current_user.id %>
-                  <% if item.buyer.nil? %>
-                    <td><%= link_to "Pick", pick_path(item), class: 'btn btn-outline-success', method: :patch %></td>
-                  <% else %>
-                    <td><%= link_to "Unpick", pick_path(item), class: 'btn btn-outline-danger', method: :patch %></td>
-                  <% end %>
-                <% else %>
-                  <td><%= item.buyer %></td>
-                <% end %>
-
-                <td><%= link_to "Delete", list_path(item, list: @list), class: 'btn btn-outline-warning', method: :delete, data: { confirm: 'Are you sure that you want to delete this item?' } %></td>
-                <td><%= link_to "Update", edit_list_item_path(item), class: 'btn btn-outline-warning', method: :get %></td>
                 <td><%= render "lists/partial/update_item", list: @list, item: item %></td>
+                <td><%= link_to "Delete", list_item_path(@list, item), class: 'btn btn-outline-warning', method: :delete, data: { confirm: 'Are you sure that you want to delete this item?' }, remote: true %></td>
               </tr>
             <% end %>
           </table>

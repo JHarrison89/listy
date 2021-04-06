@@ -29,7 +29,7 @@ class ItemsController < ApplicationController
   def destroy
     @item = Item.find(params[:id])
     @item.destroy
-    redirect_to list_path(params[:list])
+    redirect_to list_path(params[:list_id])
   end
 
   def pick
