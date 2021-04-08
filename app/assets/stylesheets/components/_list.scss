@@ -1,0 +1,75 @@
+.item_name{
+  width:20%;
+}
+
+.description{
+    width:50%;
+}
+
+.price{
+  width: 10%;
+}
+
+.link{
+  width: 10%;
+}
+
+.picker{
+  width: 10%;
+}
+
+$small: 600px;
+
+.list-flex{
+  flex-direction: row !important;
+  display: flex;
+}
+
+  //some CSS
+  @media screen and (max-width: $small) {
+
+.list-flex{
+ display: inline;
+}
+
+.item_name{
+    width: 100%;
+    font-weight: bold;
+    margin-top: 2%;
+    float:left
+  }
+
+   .description{
+    width: 75%;
+    float: left;
+    padding-right: 5%;
+  }
+
+   .description-show-page{
+    width: 65%;
+    float: left;
+    padding-right: 5%;
+  }
+
+  .price{
+    width: 10%;
+    float: left;
+  }
+
+  .link{
+    width: 10%;
+    float: left;
+  }
+
+  .picker{
+    width: 5%;
+    float: left;
+  }
+}
+
+
+
+
+
+
+
