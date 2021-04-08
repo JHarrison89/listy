@@ -3,8 +3,20 @@
 }
 
 .description{
-    width:50%;
+    width:48%;
+    padding-right:2%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
+
+.description-show-page{
+    width:48%;
+    padding-right:2%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
 .price{
   width: 10%;
@@ -28,27 +40,35 @@ $small: 600px;
   //some CSS
   @media screen and (max-width: $small) {
 
-.list-flex{
- display: inline;
-}
+  .list-flex{
+    display: inline;
+  }
 
-.item_name{
+  .item_name{
     width: 100%;
     font-weight: bold;
     margin-top: 2%;
     float:left
   }
 
-   .description{
-    width: 75%;
+  .description{
+    width: 63%;
+    padding-right: 2%;
     float: left;
     padding-right: 5%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
    .description-show-page{
-    width: 65%;
+    width: 63%;
+    padding-right: 2%;
     float: left;
     padding-right: 5%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .price{
