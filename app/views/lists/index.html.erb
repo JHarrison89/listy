@@ -8,30 +8,29 @@
       <p>Welcome to Listy, the new home of your gift lists</p>
       <h4 class="mb-3">Manage: <%= link_to "Your list", list_path(current_user.lists.ids) %></h4>
       <% @lists.each do |list| %>
+        <% next if list.user == current_user %>
       <% @list = list%>
         <div class="card p-3 mb-3">
-            <p><%= list.title %> ID: <%= list.id  %> </p>
-              <% list.items.each do |item| %>
-              <div class="list-flex">
-                <div class="item_name"><%= item.item_name %></div>
-                <div class="description"><%= item.description %></div>
-                <div class="price">£<%= item.price %></div>
-                <div class="link"><a href="<%= item.link %>">Link</a></div>
-                <div class="picker">
-                <% if item.buyer.nil? %>
-                <%= link_to pick_path(item), class: 'green', method: :patch, remote: true do %><i class="far fa-circle"></i><% end %>
-                <% elsif item.buyer == current_user.id %>
-                <%= link_to pick_path(item), class: 'green', method: :patch, remote: true do %><i class="fas fa-check-circle"></i><% end %>
-                <% else %>
-                <%= link_to pick_path(item), class: 'gray', method: :patch, remote: true do %><i class="fas fa-circle"></i><% end %>
-                <% end %>
-                </div>
+          <p><%= list.title %> ID: <%= list.id  %> </p>
+            <% list.items.each do |item| %>
+            <div class="list-flex">
+              <div class="item_name"><%= item.item_name %></div>
+              <div class="description"><%= item.description %></div>
+              <div class="price">£<%= item.price %></div>
+              <div class="link"><a href="<%= item.link %>">Link</a></div>
+              <div class="picker">
+              <% if item.buyer.nil? %>
+              <%= link_to pick_path(item), class: 'green', method: :patch, remote: true do %><i class="far fa-circle"></i><% end %>
+              <% elsif item.buyer == current_user.id %>
+              <%= link_to pick_path(item), class: 'green', method: :patch, remote: true do %><i class="fas fa-check-circle"></i><% end %>
+              <% else %>
+              <i class="fas fa-circle gray"></i>
+              <% end %>
               </div>
-            <% end %>
+            </div>
+          <% end %>
         </div>
-
       <% end %>
-
     </div>
   </div>
 </div>
