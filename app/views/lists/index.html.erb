@@ -12,7 +12,7 @@
       <% @list = list%>
         <div class="card p-3 mb-3">
           <p><%= list.title %> ID: <%= list.id  %> </p>
-            <% list.items.each do |item| %>
+            <% list.items.sort.each do |item| %>
             <div class="list-flex">
               <div class="item_name"><%= item.item_name %></div>
               <div class="description"><%= item.description %></div>
