@@ -7,6 +7,7 @@
       <h2>Hello <%= current_user.first_name %> 👋</h2>
       <p>Welcome to Listy, the new home of your gift lists</p>
       <h4 class="mb-3">Manage: <%= link_to "Your list", list_path(current_user.lists.ids) %></h4>
+      <p><strong>Key:</strong> Available <i class="far fa-circle green pr-1"></i> Selected: <i class="fas fa-check-circle green pr-1"></i>  Unavailable: <i class="fas fa-circle gray pr-1"></i></p>
       <% @lists.each do |list| %>
         <% next if list.user == current_user %>
       <% @list = list%>
@@ -20,9 +21,9 @@
               <div class="link"><a href="<%= item.link %>">Link</a></div>
               <div class="picker">
               <% if item.buyer.nil? %>
-              <%= link_to pick_path(item), class: 'green', method: :patch, remote: true do %><i class="far fa-circle"></i><% end %>
+              <%= link_to pick_path(item), method: :patch, remote: true do %><i class="far fa-circle green"></i><% end %>
               <% elsif item.buyer == current_user.id %>
-              <%= link_to pick_path(item), class: 'green', method: :patch, remote: true do %><i class="fas fa-check-circle"></i><% end %>
+              <%= link_to pick_path(item), method: :patch, remote: true do %><i class="fas fa-check-circle green"></i><% end %>
               <% else %>
               <i class="fas fa-circle gray"></i>
               <% end %>
