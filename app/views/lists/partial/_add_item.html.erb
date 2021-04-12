@@ -15,15 +15,12 @@
       </div>
       <div class="modal-body">
         <%= simple_form_for [@list, Item.new], remote: true do |f| %>
-
-            <h2> <%= @list.id %></h2>
             <%= hidden_field_tag 'list', @list.id %>
             <%= f.input :item_name%>
             <%= f.input :description%>
             <%= f.input :link%>
             <%= f.input :price %>
             <%= f.submit "Add Item", class: "btn btn-outline-primary" %>
-
       <% end %>
       </div>
       <div class="modal-footer">
