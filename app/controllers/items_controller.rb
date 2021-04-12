@@ -15,15 +15,19 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @list = List.find_by_id(params[:list_id])
+    @item = Item.find_by_id(params[:id])
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def show
+    @item = Item.find_by_id(param[:id])
   end
 
   def update
-    @item = Item.find(params[:id])
-    if @item.update(venue_params)
-      redirect_to venue_path(@venue)
-    else
-      render :edit
-    end
+    raise
   end
 
   def destroy
