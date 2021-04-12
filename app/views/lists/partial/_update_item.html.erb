@@ -1,33 +1,18 @@
-<a type="" class="gray" data-toggle="modal" data-target="#updateModal">
-  <i class="far fa-edit"></i>
-</a>
-<!-- Modal -->
-<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Update item</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body" id="myModalBody">
-        <h1><%= list %></h1>
-        <h1><%= item.item_name %></h1>
-        <%= simple_form_for [@list, item] do |f| %>
-          <h2> <%= item.id %></h2>
-          <%= hidden_field_tag 'list', @list.id %>
-          <%= f.input :item_name %>
-          <%= f.input :description %>
-          <%= f.input :link %>
-          <%= f.input :price %>
-          <%= f.submit "Add Item", class: "btn btn-outline-primary" %>
-        <% end %>
+   <div class="modal-edit">
+      <div class="modal-content">
 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-outline-warning" data-dismiss="modal">Close</button>
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3 id="myModalLabel">Modal Title</h3>
+        </div>
+
+        <div class="modal-body">
+
+
+          <div class="modal-footer">
+            <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Cancel</button>
+            <%= f.submit 'Submit', class: 'btn btn-primary' %>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
