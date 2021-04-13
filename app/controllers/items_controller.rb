@@ -27,7 +27,13 @@ class ItemsController < ApplicationController
   end
 
   def update
-    raise
+    @item = Item.find(params[:id])
+    @list = List.find(params[:list_id])
+    if @item.update(item_params)
+      redirect_to list_path(@list), notice: "Item updated."
+    else
+      render :new, notice: "Something went wrong..."
+    end
   end
 
   def destroy
@@ -46,6 +52,10 @@ class ItemsController < ApplicationController
     item.save!
     redirect_to lists_path
   end
+
+  private
+
+  # PARAMS
 
   def item_params
     params.require(:item).permit(:item_name, :description, :link, :price)
