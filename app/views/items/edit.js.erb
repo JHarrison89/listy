@@ -1,8 +1,10 @@
-// $("update-form").html("<%= escape_javascript(render partial: 'items/partial/update_item') %>");
 
-document.querySelector('#update-form').insertAdjacentHTML('afterbegin', '<%= escape_javascript(render partial: 'items/partial/update_item') %>' );
+$("#update-form").html("<%= escape_javascript(render partial: 'items/partial/update_item') %>");
+
+// document.querySelector('#update-form').insertAdjacentHTML('afterbegin', "<%= escape_javascript(render partial: 'items/partial/update_item') %>" );
+// document.querySelector('#update-form').reset();
 // $("#modal-dialog").modal('show');
-
+// append
 
 // $("#edit-modal").html("<%= j render 'items/partial/update_item' %>");
 // $('#modal-dialog').modal('show');
