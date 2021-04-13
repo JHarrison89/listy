@@ -1,5 +1,4 @@
 <!-- Modal -->
-<div class="modal fade" id="updateModal"  aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -9,10 +8,15 @@
         </button>
       </div>
       <div class="modal-body">
-        <h1>Hello</h1>
-        <h1><%= @list.title %></h1>
-          <h1><%= @item.item_name %></h1>
 
+        <%= simple_form_for [@list, @item], remote: true do |f| %>
+            <%= hidden_field_tag 'list', @list.id %>
+            <%= f.input :item_name, input_html: {value: @item.item_name } %>
+            <%= f.input :description, input_html: {value: @item.description } %>
+            <%= f.input :link, input_html: {value: @item.link } %>
+            <%= f.input :price, input_html: {value: @item.price } %>
+            <%= f.submit "Update Item", class: "btn btn-outline-primary" %>
+      <% end %>
 
         </div>
       <div class="modal-footer">
@@ -20,4 +24,3 @@
       </div>
     </div>
   </div>
-</div>
