@@ -16,9 +16,9 @@
             <div class="list-flex">
               <div class="item_name"><%= item.item_name %></div>
               <div class="description"><%= item.description %></div>
-              <div class="price">£<%= item.price %></div>
-              <div class="link"><a href="<%= item.link %>" target="_blank">Link</a></div>
-              <div class="picker">
+              <div class="w-12">£<%= item.price %></div>
+              <div class="w-10 text-center"><a href="<%= item.link %>" target="_blank">Link</a></div>
+              <div class="w-10 text-center">
               <% if item.buyer.nil? %>
               <%= link_to pick_path(item), method: :patch, remote: true do %><i class="far fa-circle green"></i><% end %>
               <% elsif item.buyer == current_user.id %>

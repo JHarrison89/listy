@@ -1,5 +1,6 @@
 .item_name{
-  width:20%;
+    min-width: 20%;
+    margin-right: 2%;
 }
 
 .description{
@@ -10,27 +11,18 @@
     text-overflow: ellipsis;
 }
 
-.description-show-page{
-    width:48%;
-    padding-right:2%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
 
-.price{
+.w-10{
   width: 10%;
+  float: left;
 }
 
-.link{
+.w-12{
   width: 10%;
+  float: left;
 }
 
-.picker{
-  width: 10%;
-}
-
-$small: 600px;
+$small: 767px;
 
 .list-flex{
   flex-direction: row !important;
@@ -52,7 +44,7 @@ $small: 600px;
   }
 
   .description{
-    width: 63%;
+    width: 70%;
     padding-right: 2%;
     float: left;
     padding-right: 5%;
@@ -61,30 +53,11 @@ $small: 600px;
     text-overflow: ellipsis;
   }
 
-   .description-show-page{
-    width: 63%;
-    padding-right: 2%;
-    float: left;
-    padding-right: 5%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  .m-w-60{
+    width: 60%;
   }
 
-  .price{
-    width: 10%;
-    float: left;
-  }
 
-  .link{
-    width: 10%;
-    float: left;
-  }
-
-  .picker{
-    width: 5%;
-    float: left;
-  }
 }
 
 
