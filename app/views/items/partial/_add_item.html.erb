@@ -1,4 +1,3 @@
-
 <a type="" class="btn btn-outline-primary" data-toggle="modal" data-target="#addModal">
   Add item
 </a>
@@ -16,9 +15,9 @@
       <div class="modal-body">
         <%= simple_form_for [@list, Item.new], remote: true do |f| %>
             <%= hidden_field_tag 'list', @list.id %>
-            <%= f.input :item_name%>
-            <%= f.input :description%>
-            <%= f.input :link%>
+            <%= f.input :item_name %>
+            <%= f.input :description %>
+            <%= f.input :link %>
             <%= f.input :price %>
             <%= f.submit "Add Item", class: "btn btn-outline-primary" %>
       <% end %>
